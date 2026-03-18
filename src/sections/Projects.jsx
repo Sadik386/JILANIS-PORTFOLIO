@@ -56,7 +56,8 @@ export default function Projects() {
   const sectionRef = useRef(null)
   const projectRefs = useRef([])
   const [projects, setProjects] = useState(PROJECTS)
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+  const API_URL = import.meta.env.VITE_API_URL || 
+                  (import.meta.env.PROD ? 'https://pixel-forge-backend-6.onrender.com' : 'http://localhost:5000');
 
   useEffect(() => {
     fetchProjects()

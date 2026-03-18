@@ -15,7 +15,8 @@ export default function Admin() {
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL || 
+                  (import.meta.env.PROD ? 'https://pixel-forge-backend-6.onrender.com' : 'http://localhost:5000');
 
   useEffect(() => {
     fetchProjects();
