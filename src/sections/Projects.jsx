@@ -56,6 +56,7 @@ export default function Projects() {
   const sectionRef = useRef(null)
   const projectRefs = useRef([])
   const [projects, setProjects] = useState(PROJECTS)
+  const [error, setError] = useState(null)
   const API_URL = import.meta.env.VITE_API_URL || 
                   (import.meta.env.PROD ? 'https://pixel-forge-backend-6.onrender.com' : 'http://localhost:5000');
 
@@ -65,13 +66,17 @@ export default function Projects() {
 
   const fetchProjects = async () => {
     try {
+      setError(null)
       const res = await fetch(`${API_URL}/api/projects`)
       if (res.ok) {
         const data = await res.json()
         setProjects(data)
+      } else {
+        setError(`HTTP ${res.status}: ${res.statusText}`)
       }
     } catch (err) {
       console.error('Failed to fetch projects', err)
+      setError(err.message || 'Network error')
     }
   }
 
@@ -135,6 +140,13 @@ export default function Projects() {
             Every project tells its own story. From concept to launch, I accompany brands
             on the path from idea to digital presence.
           </p>
+          {error && (
+             <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid #ef4444', borderRadius: '0.5rem', color: '#ef4444', fontSize: '0.85rem' }}>
+                <strong>⚠️ Live Sync Error:</strong> {error} (Falling back to static data)
+                <br />
+                <span style={{ fontSize: '0.75rem', opacity: 0.7 }}>Target: {API_URL}</span>
+             </div>
+          )}
         </div>
 
         {/* Projects list */}

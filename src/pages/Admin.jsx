@@ -14,6 +14,7 @@ export default function Admin() {
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [apiError, setApiError] = useState(null);
 
   const API_URL = import.meta.env.VITE_API_URL || 
                   (import.meta.env.PROD ? 'https://pixel-forge-backend-6.onrender.com' : 'http://localhost:5000');
@@ -24,13 +25,17 @@ export default function Admin() {
 
   const fetchProjects = async () => {
     try {
+      setApiError(null);
       const res = await fetch(`${API_URL}/api/projects`);
       if (res.ok) {
         const data = await res.json();
         setProjects(data);
+      } else {
+        setApiError(`HTTP ${res.status}: ${res.statusText}`);
       }
     } catch (err) {
       console.error('Failed to fetch projects', err);
+      setApiError(err.message || 'Network error');
     }
   };
 
@@ -142,6 +147,18 @@ export default function Admin() {
           <div style={{ marginBottom: '3rem' }}>
             <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '0.5rem' }}>Admin Dashboard</h1>
             <p style={{ color: 'var(--fg-muted)' }}>Manage your portfolio projects securely.</p>
+            {apiError && (
+              <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid #ef4444', borderRadius: '0.5rem', color: '#ef4444', fontSize: '0.9rem' }}>
+                <strong>⚠️ API Connection Error:</strong> {apiError}
+                <br />
+                <span style={{ fontSize: '0.8rem', opacity: 0.8 }}>Target: {API_URL}/api/projects</span>
+              </div>
+            )}
+            {!apiError && (
+               <div style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'var(--fg-muted)', opacity: 0.5 }}>
+                 Connected to: {API_URL}
+               </div>
+            )}
           </div>
 
           <div style={{
