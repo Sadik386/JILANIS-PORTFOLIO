@@ -85,35 +85,7 @@ export default function Contact() {
         </div>
 
         {/* Social links */}
-        <div className="anim" style={{
-          marginTop: '4rem',
-          display: 'flex',
-          gap: '2rem',
-          justifyContent: 'center',
-        }}>
-          {[
-            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abdul-kader-zilani007' },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.9rem',
-                color: 'var(--fg-muted)',
-                borderBottom: '1px solid var(--border)',
-                paddingBottom: '2px',
-                transition: 'color 0.2s, border-color 0.2s',
-              }}
-              onMouseEnter={e => { e.target.style.color = 'var(--fg)'; e.target.style.borderColor = 'var(--fg)' }}
-              onMouseLeave={e => { e.target.style.color = 'var(--fg-muted)'; e.target.style.borderColor = 'var(--border)' }}
-            >
-              {link.label} ↗
-            </a>
-          ))}
-        </div>
+        
       </div>
     </section>
   )

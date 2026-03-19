@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 import Hero from '../sections/Hero.jsx'
+import ProfileCard from '../sections/ProfileCard.jsx'
 import Marquee from '../sections/Marquee.jsx'
 import LogosGrid from '../sections/LogosGrid.jsx'
 import About from '../sections/About.jsx'
@@ -18,6 +19,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <ProfileCard />
         <Marquee />
         <LogosGrid />
         <About />
