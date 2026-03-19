@@ -27,7 +27,7 @@ const PROJECTS = [
     tags: ['SEO', 'AI Tools', 'Growth'],
     desc: 'Leveraged AI tools to generate high-ranking social media posts and blog content for organic reach.',
     stats: [
-      { value: '100+', label: 'Posts Created' },
+      { value: '500+', label: 'Posts Created' },
       { value: 'Organic', label: 'Growth' },
       { value: 'AI', label: 'Powered' },
       { value: 'SEO', label: 'Optimized' },

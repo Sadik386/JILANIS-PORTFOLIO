@@ -110,39 +110,19 @@ export default function About() {
               border: '1px solid var(--border)',
               borderRadius: '1.25rem',
               aspectRatio: '4/5',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
               overflow: 'hidden',
               position: 'relative',
             }}>
-              <div style={{
-                width: '100%',
-                height: '100%',
-                background: 'linear-gradient(135deg, rgba(240,192,96,0.08) 0%, rgba(10,10,10,0) 60%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                gap: '1rem',
-              }}>
-                <div style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, var(--accent-bright), var(--accent))',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'var(--font-display)',
-                  fontWeight: 800,
-                  fontSize: '2rem',
-                  color: 'var(--bg)',
-                }}>
-                  AZ
-                </div>
-                <span style={{ color: 'var(--fg-muted)', fontSize: '0.85rem' }}>Abdul Kader Zilani</span>
-              </div>
+              <img
+                src="/zilani.jpeg"
+                alt="Abdul Kader Zilani"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
 
               {/* Badge */}
               <div style={{
@@ -156,6 +136,7 @@ export default function About() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.5rem',
+                backdropFilter: 'blur(8px)',
               }}>
                 <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#22c55e', animation: 'pulse 2s infinite' }} />
                 <span style={{ fontSize: '0.75rem', color: 'var(--fg)', fontWeight: 500 }}>Open to work</span>

@@ -15,8 +15,8 @@
   --border: rgba(245, 240, 234, 0.1);
   --border-hover: rgba(245, 240, 234, 0.25);
 
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'EB Garamond', Georgia, sans-serif;
+  --font-body: 'EB Garamond', Georgia, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
@@ -45,8 +45,8 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(3.5rem, 10vw, 9rem); font-weight: 800; }
-h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; }
+h1 { font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 700; }
 h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; }
 h4 { font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 600; }
 
@@ -213,6 +213,304 @@ img, svg {
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+/* ─── Services Tabs ─── */
+.services-tabs-section {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.services-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.services-tabs-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.services-tab-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.3s;
+}
+
+.services-tab-btn:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.services-tab-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0;
+  transition: margin-bottom 0.3s;
+}
+
+.services-tab-btn.is-active .services-tab-header {
+  margin-bottom: 0.75rem;
+}
+
+.services-tab-icon {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(0.55);
+  transition: filter 0.3s;
+}
+
+.services-tab-btn.is-active .services-tab-icon {
+  filter: brightness(0) invert(1);
+}
+
+.services-tab-btn h3 {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--fg-muted);
+  transition: color 0.3s;
+  margin: 0;
+}
+
+.services-tab-btn.is-active h3 {
+  color: var(--fg);
+}
+
+.services-tab-btn:hover h3 {
+  color: var(--fg);
+}
+
+.services-tab-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out-expo), opacity 0.3s;
+  opacity: 0;
+}
+
+.services-tab-btn.is-active .services-tab-body {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.services-tab-body p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  max-width: 50ch;
+}
+
+.services-tabs-content {
+  position: sticky;
+  top: 6rem;
+}
+
+.services-tabs-image-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.services-tabs-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.services-tabs-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+}
+
+.services-tabs-overlay-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .services-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .services-tabs-content {
+    position: static;
+  }
+
+  .services-tabs-image-wrapper {
+    aspect-ratio: 16/10;
+  }
+}
+
+/* ─── Logos Grid ─── */
+.logos-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.logos-grid-item {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  min-height: 80px;
+}
+
+.logos-img {
+  max-width: 100px;
+  max-height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.logos-img:hover {
+  opacity: 0.9;
+}
+
+.logos-img.is-wide {
+  max-width: 140px;
+}
+
+.logos-img.is-small {
+  max-width: 70px;
+}
+
+@media (max-width: 768px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logos-grid-item {
+    padding: 1.25rem 1rem;
+  }
+
+  .logos-img {
+    max-width: 80px;
+  }
+}
+
+/* ─── Carousel ─── */
+.carousel-section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.carousel-outer {
+  display: flex;
+  width: max-content;
+  animation: carouselScroll 40s linear infinite;
+}
+
+.carousel-outer:hover {
+  animation-play-state: paused;
+}
+
+@keyframes carouselScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.carousel-track {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  padding-right: 1rem;
+  flex-shrink: 0;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 22rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.carousel-item.is-small {
+  width: 14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 1rem;
+}
+
+.carousel-logo {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 0.5rem;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.carousel-gold-stats {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent-bright);
+  line-height: 1.2;
+}
+
+.carousel-item .tag.text-align-center {
+  text-align: center;
+  justify-content: center;
+  border: none;
+  padding: 0.15rem 0;
+  font-size: 0.7rem;
+  color: var(--fg-muted);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 16rem;
+  }
+
+  .carousel-item.is-small {
+    width: 11rem;
+  }
+
+  .carousel-gold-stats {
+    font-size: 1.4rem;
+  }
 }
 
 /* ─── Fade Up (initial load animation) ─── */

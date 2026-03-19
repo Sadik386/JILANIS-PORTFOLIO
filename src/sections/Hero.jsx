@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { Link } from 'react-router-dom'
 
-const ROTATING_WORDS = ['Growth Marketer!', 'Ad Specialist!', 'SEO Expert!', 'Performance Pro!']
+const ROTATING_WORDS = ['Growth Marketer!', 'Ad Specialist!','Performance Pro!']
 
 export default function Hero() {
   const heroRef = useRef(null)
@@ -79,7 +79,7 @@ export default function Hero() {
 
   const stats = [
     { value: '$2k+', label: 'Ad Budget Managed' },
-    { value: '100+', label: 'SEO Content Created' },
+    { value: '500+', label: 'SEO Content Created' },
     { value: '3+', label: 'Years Experience' },
     { value: 'ROI', label: 'Driven Approach' },
   ]

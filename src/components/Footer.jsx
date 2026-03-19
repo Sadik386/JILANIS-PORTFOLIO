@@ -54,30 +54,41 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Links */}
-          <div>
-            <h5 style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: '1rem' }}>
-              Connect
-            </h5>
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              {[
-                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abdul-kader-zilani007' },
-                { label: 'Book a Call', href: '/booking' },
-              ].map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  style={{ fontSize: '0.9rem', color: 'var(--fg-muted)', transition: 'color 0.2s' }}
-                  onMouseEnter={e => e.target.style.color = 'var(--fg)'}
-                  onMouseLeave={e => e.target.style.color = 'var(--fg-muted)'}
-                >
-                  {link.label} ↗
-                </a>
-              ))}
-            </nav>
-          </div>
+        </div>
+
+        {/* Social icons */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1.25rem',
+          marginBottom: '2rem',
+          marginLeft: '62rem',
+        }}>
+          {[
+            { label: 'YouTube', href: 'https://youtube.com', icon: 'https://cdn.prod.website-files.com/5fd7b40fdda7331ff779b5f0/68093478231ce0a4bf1097ff_72e709e88af9f5022b7533f53d3e36b3_youtube.svg' },
+            { label: 'Facebook', href: 'https://facebook.com', icon: 'https://cdn.prod.website-files.com/5fd7b40fdda7331ff779b5f0/68093478231ce0a4bf1097fe_08a90c1462cc240a01e4183ab9e949b9_Facebook.svg' },
+            { label: 'Instagram', href: 'https://instagram.com', icon: 'https://cdn.prod.website-files.com/5fd7b40fdda7331ff779b5f0/68093478231ce0a4bf1097fd_cc373f5cbe3aec88955c296e1ee588bc_Instagram.svg' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abdul-kader-zilani007', icon: 'https://cdn.prod.website-files.com/5fd7b40fdda7331ff779b5f0/68093478231ce0a4bf1097fc_b07de26aeb8c21aab0a42e67c6972745_LinkedIn.svg' },
+            { label: 'X', href: 'https://x.com', icon: 'https://cdn.prod.website-files.com/5fd7b40fdda7331ff779b5f0/68093478231ce0a4bf1097fb_9f14a6ee7dc888e9891e903558df91ca_x.svg' },
+          ].map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                opacity: 0.5,
+                transition: 'opacity 0.2s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.opacity = '1'}
+              onMouseLeave={e => e.currentTarget.style.opacity = '0.5'}
+            >
+              <img loading="lazy" src={social.icon} alt="" style={{ width: 24, height: 24 }} />
+            </a>
+          ))}
         </div>
 
         {/* Bottom bar */}

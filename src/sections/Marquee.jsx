@@ -17,7 +17,7 @@ export default function Marquee() {
     }}>
       {/* Label */}
       <div className="container" style={{ marginBottom: '1.5rem' }}>
-        <span className="section-label">Trusted by brands</span>
+        <span className="section-label">SKILLS I HAVE</span>
       </div>
 
       <div className="marquee-wrapper">
